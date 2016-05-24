@@ -7,7 +7,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Tiendas <font style="font-size:12px;"><a href="{{ route('stores.create') }}">Agregar</a></font></h1>
+                    <h1 class="page-header">Articulos <font style="font-size:12px;"><a href="{{ route('articles.create') }}">Agregar</a></font></h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -15,9 +15,6 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Registros
-                        </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="dataTable_wrapper">
@@ -25,14 +22,22 @@
                                     <thead>
                                     <tr>
                                         <th>Nombre</th>
-                                        <th>Direccion</th>
+                                        <th>Descripcion</th>
+                                        <th>Precio</th>
+                                        <th>Total en estante</th>
+                                        <th>Total en bodega</th>
+                                        <th>Nombre Tienda</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($stores as $store)
+                                    @foreach($articles as $store)
                                         <tr class="odd gradeX">
                                             <td>{{$store->name}}</td>
-                                            <td>{{$store->address}}</td>
+                                            <td>{{$store->description}}</td>
+                                            <td>{{$store->price}}</td>
+                                            <td>{{$store->total_in_shelf}}</td>
+                                            <td>{{$store->total_in_vault}}</td>
+                                            <td>{{$store->stores->name}}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>

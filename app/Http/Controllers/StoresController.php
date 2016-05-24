@@ -11,18 +11,11 @@ use App\Stores;
 class StoresController extends Controller
 {
 
-    public function index($idStore = null)
+    public function index()
     {
-        if(!isset($idStore))
-        {
-            $articles = Stores::All();
-        }
-        /*else
-        {
-            $professionals = Stores::getBySkillName($idStore);
-        }*/
+        $stores = Stores::All();
 
-        return view('stores.index')->withArticles($articles);
+        return view('stores.index')->withStores($stores);
     }
 
     public function create()
@@ -38,5 +31,17 @@ class StoresController extends Controller
 
         return redirect()->route('stores.index');
 
+    }
+
+    public function listStores()
+    {
+        $stores = Stores::All();
+        return response()->json(
+            [
+                'stores' => $stores,
+                'success' => true,
+                'total_elements' => count($stores)
+            ]
+        );
     }
 }

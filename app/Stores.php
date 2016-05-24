@@ -11,4 +11,9 @@ class Stores extends Model
     public $timestamps = false;
 
     protected $fillable = ['name', 'address'];
+
+    public function articles()
+    {
+        return $this->hasMany('App\Articles', 'store_id');
+    }
 }
