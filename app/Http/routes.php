@@ -11,7 +11,7 @@
 |
 */
 
-//TODO : AGREGAR ESTILOS, PHPUNIT, hacer SEEDS
+//TODO : AGREGAR ESTILOS, PHPUNIT
 Route::resource('stores', 'StoresController');
 Route::resource('articles', 'ArticlesController');
 

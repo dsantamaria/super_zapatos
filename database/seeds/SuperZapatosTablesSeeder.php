@@ -11,8 +11,11 @@ class SuperZapatosTablesSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Stores::class, 50)->create()->each(function($u) {
-            $u->articles()->save(factory(App\Articles::class)->make());
+        factory(App\Stores::class, 10)->create()->each(function($u) {
+            for($i = 0; $i < 10 ; $i++)
+            {
+                $u->articles()->save(factory(App\Articles::class)->make());
+            }
         });
     }
 }
