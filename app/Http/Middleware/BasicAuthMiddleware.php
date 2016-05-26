@@ -22,7 +22,14 @@ class BasicAuthMiddleware
         }
         else
         {
-            return response('Unauthorized.', 401);
+
+            return response()->json(
+                [
+                    'error_msg' => 'Not authorized',
+                    'error_code' => 401,
+                    'success' => false,
+                ]
+            );
         }
     }
 }

@@ -55,8 +55,6 @@ class ArticlesController extends Controller
 
     public function listArticles()
     {
-        //$bla = Articles::find(1);
-        //dd($bla->stores->address);
         $articles = Articles::getArticlesList();
 
         return response()->json(
